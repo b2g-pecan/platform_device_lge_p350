@@ -11,6 +11,9 @@ GPS_CONF := gps.conf
 KEYPAD := 7k_handset.kl
 KEYPAD += touch_mcs7000.kl
 
+#LG
+LG := lgapversion
+
 #LOCAL_INIT
 LOCAL_INIT := vold.fstab
 LOCAL_INIT += init.qcom.bt.sh
@@ -28,6 +31,7 @@ WPA += dhcpcd.conf
 PRODUCT_PACKAGES += $(AUDIO_CONF)
 PRODUCT_PACKAGES += $(GPS_CONF)
 PRODUCT_PACKAGES += $(KEYPAD)
+PRODUCT_PACKAGES += $(LG)
 PRODUCT_PACKAGES += $(LOCAL_INIT)
 PRODUCT_PACKAGES += $(MEDIA_PROFILES)
 PRODUCT_PACKAGES += $(WPA)
