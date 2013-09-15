@@ -64,7 +64,6 @@ INIT += init.qcom.rendering.sh
 INIT += init.qcom.mdm_links.sh
 INIT += init.qcom.modem_links.sh
 INIT += init.target.rc
-INIT += init.qcom.bt.sh
 INIT += init.qcom.coex.sh
 INIT += init.qcom.fm.sh
 INIT += init.qcom.post_boot.sh
@@ -73,7 +72,6 @@ INIT += init.qcom.sdio.sh
 INIT += init.qcom.sh
 INIT += init.qcom.wifi.sh
 INIT += vold.fstab
-INIT += init.qcom.ril.path.sh
 INIT += init.qcom.usb.rc
 INIT += init.qcom.usb.sh
 
@@ -86,15 +84,9 @@ IPTABLES := libiptc
 IPTABLES += libext
 IPTABLES += iptables
 
-#KERNEL_TESTS
-KERNEL_TESTS := mm-audio-native-test
-
 #KEYPAD
-KEYPAD := surf_keypad.kcm
-KEYPAD += 7k_ffa_keypad.kcm
-KEYPAD += 7k_ffa_keypad.kl
-KEYPAD += 7k_handset.kl
-KEYPAD += surf_keypad.kl
+KEYPAD := 7k_handset.kl
+KEYPAD += touch_mcs7000.kl
 
 #LIBCAMERA
 LIBCAMERA := libcamera
@@ -135,9 +127,6 @@ $(call inherit-product, external/llvm/llvm-select.mk)
 
 #LOC_API
 LOC_API := libloc_api-rpc-qc
-
-#MEDIA_PROFILES
-MEDIA_PROFILES := media_profiles.xml
 
 #MM_AUDIO
 MM_AUDIO := libOmxAacDec
@@ -217,9 +206,6 @@ TSLIB_EXTERNAL += ts
 QRGND := qrngd
 QRGND += qrngtest
 
-#WPA
-WPA := wpa_supplicant.conf
-
 #ZLIB
 ZLIB := gzip
 ZLIB += minigzip
@@ -270,8 +256,6 @@ PRODUCT_PACKAGES += $(I420CC)
 PRODUCT_PACKAGES += $(INIT)
 PRODUCT_PACKAGES += $(IPROUTE2)
 PRODUCT_PACKAGES += $(IPTABLES)
-PRODUCT_PACKAGES += $(KERNEL_TESTS)
-PRODUCT_PACKAGES += $(KEYPAD)
 PRODUCT_PACKAGES += $(LIBCAMERA)
 PRODUCT_PACKAGES += $(LIBCOPYBIT)
 PRODUCT_PACKAGES += $(LIBGRALLOC)
@@ -283,7 +267,6 @@ PRODUCT_PACKAGES += $(LIBHWCOMPOSER)
 PRODUCT_PACKAGES += $(LIBGENLOCK)
 PRODUCT_PACKAGES += $(LIBQCOMUI)
 PRODUCT_PACKAGES += $(LOC_API)
-PRODUCT_PACKAGES += $(MEDIA_PROFILES)
 PRODUCT_PACKAGES += $(MM_AUDIO)
 PRODUCT_PACKAGES += $(MM_CORE)
 PRODUCT_PACKAGES += $(MM_VIDEO)
@@ -295,7 +278,6 @@ PRODUCT_PACKAGES += $(STK)
 PRODUCT_PACKAGES += $(TSLIB_EXTERNAL)
 PRODUCT_PACKAGES += $(QRGND)
 PRODUCT_PACKAGES += $(UPDATER)
-PRODUCT_PACKAGES += $(WPA)
 PRODUCT_PACKAGES += $(ZLIB)
 
 
@@ -347,8 +329,6 @@ PRODUCT_LOCALES += ldpi mdpi normal
 
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.extension_library=/system/lib/libqc-opt.so
-
-PRODUCT_PRIVATE_KEY := device/lge/p350/qcom/qcom.key
 
 $(call inherit-product, frameworks/base/build/phone-hdpi-dalvik-heap.mk)
 $(call inherit-product, frameworks/base/data/fonts/fonts.mk)

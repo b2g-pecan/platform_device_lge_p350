@@ -1,4 +1,4 @@
-$(call inherit-product, device/lge/p350/p350.mk)
+$(call inherit-product, device/lge/p350/p350_device.mk)
 $(call inherit-product, vendor/lge/p350/p350-vendor-blobs.mk)
 $(call inherit-product, vendor/lge/msm7x27-common/msm7x27-common-vendor-blobs.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full.mk)
